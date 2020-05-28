@@ -1,0 +1,65 @@
+body {
+  background: #000;
+  color: lightgray;
+  font-size: 28px;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 400px;
+  grid-template-areas:
+  "text text"
+  "img letter";
+  row-gap: 50px;
+}
+
+.password {
+  text-align: center;
+  grid-area: text / span 2;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-family: 'Lato', sans-serif;
+}
+
+.hangman {
+  grid-area: img;
+  min-height: 280px;
+}
+
+.letters {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.letters_item {
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  user-select: none;
+}
+
+.letters_item:not(.correct):not(.incorrect):hover {
+  box-shadow: 0px 0px 4px #ffffff;
+  border: 2px solid white;
+}
+
+.correct {
+  box-shadow: 0px 0px 10px #39ff14;
+  border: 2px solid #39ff14;
+  background: rgba(57, 255, 20, 0.7);
+}
+
+.incorrect {
+  box-shadow: 0px 0px 10px #f00;
+  border: 2px solid #f00;
+  background: rgba(255, 0, 0, 0.7);
+}
