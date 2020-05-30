@@ -14,6 +14,7 @@ body {
   "text text"
   "img letter";
   row-gap: 50px;
+  position: relative;
 }
 
 .password {
@@ -35,6 +36,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   align-content: flex-start;
+  position: relative;
 }
 
 .letters_item {
@@ -62,4 +64,13 @@ body {
   box-shadow: 0px 0px 10px #f00;
   border: 2px solid #f00;
   background: rgba(255, 0, 0, 0.7);
+}
+
+.end {
+  position: absolute;
+  top: 18%;
+  right: 18%;
+  width: 400px;
+  height: 270px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
