@@ -3,6 +3,7 @@ body {
   color: lightgray;
   font-size: 28px;
   box-sizing: border-box;
+  position: relative;
 }
 
 #container {
@@ -68,9 +69,33 @@ body {
 
 .end {
   position: absolute;
-  top: 18%;
-  right: 18%;
+  top: 27%;
+  right: 17%;
   width: 400px;
   height: 270px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.end_p {
+  color: lightgray;
+}
+
+.end_btn {
+  padding: 5px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  background-color: transparent;
+  color: lightgray;
+  font-size: 28px;
+  transition: all 0.2s;
+}
+
+.end_btn:hover, .end_btn:active {
+  box-shadow: 0px 0px 5px #ffffff;
+  border: 2px solid white;
+  text-shadow: 0px 0px 2px #ffffff;
 }
