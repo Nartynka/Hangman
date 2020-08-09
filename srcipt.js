@@ -12,15 +12,17 @@ function wypisz_haslo() {
     else password2 += "-";
   }
   document.querySelector(".password").innerHTML = password2;
-  console.log(password2);
+  console.log("wypisz haslo " + password2);
+  //return password2;
 }
 
 window.onload = divs;
+//console.log("global" + password2);
 
 function divs() {
-  wypisz_haslo();
-
+  //console.log("divs" + password2);
   //create 35 letter div
+  wypisz_haslo();
   for (let i = 0; i < 35; i++) {
     const letter = document.createElement("div");
     letter.setAttribute("class", "letters_item");
@@ -31,44 +33,58 @@ function divs() {
   //   letter[i].addEventListener('click', sprawdz, false);
   // }
   const letters = document.querySelectorAll(".letters_item");
-  letters.forEach(letters => letters.addEventListener('click', sprawdz, false));
+  letters.forEach((letters) => letters.addEventListener("click", sprawdz, false));
 }
 let count = 0;
 let countn = 0;
 let tab = [...password2];
-function sprawdz(){
+//console.log("global" + password2);
+// console.log(password2);
+// console.log(tab[5]);
+function sprawdz() {
   // const tab2 = [...password];
   //console.log(tab);
+  //console.log("sprawdz" + password2);
   for (let i = 0; i < password.length; i++) {
     if (password.charAt(i) == this.innerHTML) {
       count++;
       tab.splice(i, 0, this.innerHTML);
       this.classList.add("correct");
-      this.removeEventListener('click', sprawdz);
-      document.querySelector(".password").innerHTML = tab.join('');
+      this.removeEventListener("click", sprawdz);
       console.log(tab);
-      if(count == password.length) end(1);
-    } 
+      //password2[i] = this.innerHTML;
+      document.querySelector(".password").innerHTML = tab.join(""); //password2.join('');//tab.join("");
+      console.log(password2);
+      if (count == password.length) end(1);
+    }
   }
-  if(!this.classList.contains("correct")) {
+  const img = document.querySelector(".hangman_img");
+  if (!this.classList.contains("correct")) {
     this.classList.add("incorrect");
-    this.removeEventListener('click', sprawdz);
+    this.removeEventListener("click", sprawdz);
     countn++;
-    if(countn == 9) end(0);
+    img.src = "img/s" + countn + ".jpg";
+    if (countn == 9) end(0);
   }
   console.log("incorrect: " + countn);
-  console.log("correct: "+count);
+  console.log("correct: " + count);
 }
-const l = document.querySelector(".end");
-const lp = document.querySelector(".end_p");
-function end(wl){
-  l.setAttribute("display", "block");
-  if(wl == 1){
+const loose = document.querySelector(".end");
+const looseP = document.querySelector(".end_p");
+const looseBtn = document.querySelector(".end_btn");
+looseBtn.addEventListener("click", function() {
+    location.reload();
+  },
+  false
+);
+
+function end(wl) {
+  loose.style.display = "flex";
+  if (wl == 1) {
     console.log("WYGRAŁEŚ, BRAWO!");
-    lp.innerHTML = "Wygrałeś, gratki!";
-  }
-  else {
+    looseP.innerHTML = "Wygrałeś, gratki!";
+  } else {
     console.log("Przegrałeś, Spróbuj ponownie");
-    lp.innerHTML = "Przykro mi, przegrałeś";
+    looseP.innerHTML = "Przykro mi, przegrałeś";
   }
 }
